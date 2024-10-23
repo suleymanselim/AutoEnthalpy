@@ -1,0 +1,31 @@
+[moleculetype]
+; name nrexcl
+SOL      2
+
+[atoms]
+; nr type resnr residu atom cgnr charge        mass
+1     OW_tip5p-2018   1     SOL  OW    1   -0.641114     15.994     
+2     HW_tip5p-2018   1     SOL  HW1   1    0.394137      1.008     
+3     HW_tip5p-2018   1     SOL  HW2   1    0.394137      1.008     
+4     LW_tip5p-2018   1     SOL  LP1   1   -0.073580      0.000     
+5     LW_tip5p-2018   1     SOL  LP2   1   -0.073580      0.000     
+
+
+;geometry taken from TIP5P
+[ settles ]
+; i     funct   doh     dhh
+1       1       0.09572 0.15139
+
+[ virtual_sites3 ]
+; Vsite from                    funct   a               b               c
+4      1       2       3       4        -0.344908  -0.344908  -6.4437903493
+5      1       2       3       4        -0.344908  -0.344908   6.4437903493
+
+
+[ exclusions ]
+1       2       3       4       5     
+2       1       3       4       5
+3       1       2       4       5
+4       1       2       3       5
+5       1       2       3       4
+

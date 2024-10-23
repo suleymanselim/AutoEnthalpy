@@ -1,0 +1,101 @@
+;====================================================
+; NVT equilibration
+;====================================================
+define                   = -DPOSRES
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 50000
+init-step                = 0
+simulation-part          = 1
+comm-mode                = Linear
+nstcomm                  = 100
+comm-grps                = 
+
+
+; OUTPUT CONTROL OPTIONS
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+nstlog                   = 50000
+nstcalcenergy            = 500
+nstenergy                = 500
+nstxout-compressed       = 50000
+compressed-x-precision   = 1000
+compressed-x-grps        = 
+energygrps               = 
+
+; NEIGHBORSEARCHING PARAMETERS
+cutoff-scheme            = Verlet
+nstlist                  = 10
+ns_type                  = grid
+pbc                      = xyz
+periodic-molecules       = no
+verlet-buffer-tolerance  = 0.005
+rlist                    = 1
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+coulombtype              = PME
+coulomb-modifier         = Potential-shift-Verlet
+rcoulomb-switch          = 0
+rcoulomb                 = 1
+fourierspacing           = 0.125
+fourier-nx               = 0
+fourier-ny               = 0
+fourier-nz               = 0
+epsilon-r                = 1
+epsilon-rf               = 0
+table-extension          = 1
+
+vdwtype                  = Cut-off
+vdw-modifier             = Potential-shift	
+rvdw-switch              = 0			
+rvdw                     = 1.0			
+DispCorr                 = EnerPres		
+
+
+; EWALD/PME/PPPM parameters
+pme-order                = 4
+ewald-rtol               = 1e-05
+ewald-geometry           = 3d
+epsilon-surface          = 0
+implicit-solvent         = no
+ewald-rtol-lj            = 0.001
+lj-pme-comb-rule         = Geometric
+
+
+; OPTIONS FOR WEAK COUPLING ALGORITHMS
+tcoupl                   = v-rescale
+nsttcouple               = -1
+nh-chain-length          = 10
+print-nose-hoover-chain-variables = no
+tc-grps                  = System
+tau-t                    = 0.1
+ref-t                    = 298.15
+pcoupl                   = No
+pcoupltype               = Isotropic
+nstpcouple               = -1
+tau-p                    = 40
+compressibility          = 4.5e-5
+ref-p                    = 1
+refcoord-scaling         = No
+
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen-vel                  = yes
+gen-temp                 = 298.15
+gen-seed                 = -1
+
+; OPTIONS FOR BONDS    
+constraints              = h-bonds
+constraint-algorithm     = Lincs
+continuation             = no
+Shake-SOR                = no
+shake-tol                = 0.0001
+lincs-order              = 4
+lincs-iter               = 1
+lincs-warnangle          = 30
+morse                    = no
+

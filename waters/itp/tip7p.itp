@@ -1,0 +1,27 @@
+[ moleculetype ]
+SOL          2
+[ atoms ]
+1     OW_tip7p    1    SOL     OW      1      0.11094
+2     HW_tip7p    1    SOL     HW1     1      0.58014
+3     HW_tip7p    1    SOL     HW2     1      0.58014
+4     MW_tip7p    1    SOL     MW1     1     -0.45837
+5     MW_tip7p    1    SOL     MW2     1     -0.45837
+6     LW_tip7p    1    SOL     LW1     1     -0.17724
+7     LW_tip7p    1    SOL     LW2     1     -0.17724
+[ settles ]
+1     1     0.09572   0.15139 ; ang_HOH = 104.52 degree
+[ virtual_sites2 ]
+4     1     2     1     0.50000
+5     1     3     1     0.50000
+[ virtual_sites3 ]
+;                             a            b          c         rOL = 0.040998 nm, ang_LOL = 109.47 degree
+6     1     2     3     4   -0.202008   -0.202008   3.774036 ; a = b = -0.040998*cos(109.47/2)/(2*0.09572*cos(104.52/2))
+7     1     3     2     4   -0.202008   -0.202008   3.774036 ; c = 0.040998*sin(109.47/2)/(0.09572*0.09572*sin(104.52))
+[ exclusions ]
+1    2    3    4    5    6    7
+2    1    3    4    5    6    7
+3    1    2    4    5    6    7
+4    1    2    3    5    6    7
+5    1    2    3    4    6    7
+6    1    2    3    4    5    7
+7    1    2    3    4    5    6
